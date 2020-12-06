@@ -48,12 +48,20 @@ class PostController extends Controller
     public function store(StoreEcommercePost $request)
     {
 
-        Post::create($request->validated());
+        //Post::create($request->validated());
+        //dd($request);
+        /* $a = $request->category;
+        dd($a); */
+        //$category = Category::all();
+       
+        
+        $post = $category->posts()->create($request->validated());
+        $post->categories()->syncWithoutDetaching([$request->category]);
 
-
-
-
-
+        /* $category = Category::where(['name'=>'category_id'])->firstOrFail();
+        $post = new Post;
+        $post->status()->associate($category);
+        $post->save(); */
 
         /* $post = Post::create($request->all());
        // dd($request);
@@ -90,7 +98,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -102,7 +110,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+       $post->update($request->all());
+     
+       return redirect()->back()->with('message', 'Complimenti hai modificato il post!');
     }
 
     /**
@@ -113,6 +123,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->back()->with('message','Hai cancellato il messaggio!');
     }
 }

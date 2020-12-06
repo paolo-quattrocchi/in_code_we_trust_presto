@@ -41,18 +41,18 @@
         </div>
         <div class="form-group">
             <label for="categories">Seleziona categoria</label>
-            <select class="custom-select" id="categories">
+            <select class="form-control" id="categories" name="category">
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option value="{{$category->id}}" {{ old('category') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                 
                 @endforeach
             </select>
         </div>
         
-        <div class="form-group">
+    {{--     <div class="form-group">
             <label for="image">Carica immagine</label>
             <input type="file" class="form-control" id="image" aria-describedby="image" name="image">
-        </div>
+        </div> --}}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     

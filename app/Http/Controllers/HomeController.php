@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEcommercePost;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +26,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+   /*  public function store(StoreEcommercePost $request){
+        StoreEcommercePost::create([
+            'title'=>$request->input(('title')),
+            'description'=>$request->input(('description')),
+            'price'=>$request->input(('price')),
+            'image'=>$request->input(('image')),
+            'category_id'=>$request->input(('category_id')),
+        ]);
+    } */
 }

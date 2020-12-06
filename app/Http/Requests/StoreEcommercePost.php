@@ -27,7 +27,8 @@ class StoreEcommercePost extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'image' => 'required',
+           // 'image' => 'required',
+           // 'category_id' => 'required'
         ];
     }
 
@@ -37,7 +38,8 @@ class StoreEcommercePost extends FormRequest
             'title.required' => 'Campo obbligatorio',
             'description.required' => 'Campo obbligatorio',
             'price.required' => 'Campo obbligatorio',
-            'image.required' => 'Campo obbligatorio',
+           // 'image.required' => 'Campo obbligatorio',
+            //'category_id' => 'Campo obbligatorio',
         ];
     }
 }
