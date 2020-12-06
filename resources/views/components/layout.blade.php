@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Document</title>
+    {{$style ?? ''}}
+    <title>{{$title ?? 'Presto'}}</title>
 </head>
 <body>
    <x-navbar />
@@ -29,5 +30,6 @@
     <x-footer />
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    {{$scripts ?? ''}}
 </body>
 </html>

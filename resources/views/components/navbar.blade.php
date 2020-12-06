@@ -8,15 +8,15 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="/">Home
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="{{route('posts.index')}}">Vedi gli annunci</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="{{route('posts.create')}}">Pubblica annuncio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
@@ -54,7 +54,9 @@
                         </form>
                     </div>
                 </li>
-            @endguest
+
+                @endguest
+                <a href="{{route('posts.create')}}" class="btn btn-primary ml-3">Inserisci annuncio</a>
         </ul>
       </div>
     </div>
