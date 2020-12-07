@@ -47,26 +47,10 @@ class PostController extends Controller
      */
     public function store(StoreEcommercePost $request)
     {
-
-        //Post::create($request->validated());
-        //dd($request);
-        /* $a = $request->category;
-        dd($a); */
-        //$category = Category::all();
-       
         
-        $post = $category->posts()->create($request->validated());
-        $post->categories()->syncWithoutDetaching([$request->category]);
-
-        /* $category = Category::where(['name'=>'category_id'])->firstOrFail();
-        $post = new Post;
-        $post->status()->associate($category);
-        $post->save(); */
-
-        /* $post = Post::create($request->all());
-       // dd($request);
-        $post = Category::find(1)->posts;
-        $post->category()->save(); */
+        Post::create($request->validated());
+        
+        
 
 
         /* $post = new Post();
@@ -74,7 +58,7 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->price = $request->input('price');
         $post->category_id = $request->input('category_id');
-        $post->image = $request->input('image');
+       // $post->image = $request->input('image');
         $post->save(); */
         return redirect()->back()->with('message', 'L\'annuncio è stato pubblicato correttamente');
     }
