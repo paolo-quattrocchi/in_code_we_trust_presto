@@ -18,8 +18,18 @@
           <li class="nav-item">
           <a class="nav-link" href="{{route('posts.create')}}">Pubblica annuncio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorie
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach ($categories as $category)
+            <a class="dropdown-item" href="">{{$category->name}}</a>
+              
+              
+              @endforeach
+              
+            </div>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
