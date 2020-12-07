@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +32,5 @@ Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
+
+Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('categories.show');
