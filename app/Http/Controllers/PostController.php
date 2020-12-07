@@ -23,7 +23,7 @@ class PostController extends Controller
     public function index()
     {
         //vogliamo mostrare tutti i post
-        $posts=Post::all();
+        $posts = Post::orderBy('id', 'desc')->limit(5)->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -48,9 +48,15 @@ class PostController extends Controller
     public function store(StoreEcommercePost $request)
     {
         
-        Post::create($request->validated());
+        //Post::create($request->validated());
         
-        
+        Post::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'category_id' => $request->category_id,
+            'image' => $request->file('image')->store('public/media'),
+        ]);
 
 
         /* $post = new Post();
@@ -71,7 +77,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**

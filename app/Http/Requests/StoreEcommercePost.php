@@ -27,7 +27,7 @@ class StoreEcommercePost extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'image' => 'required',
+            'image' => 'required  | image',
             'category_id' => 'required'
         ];
     }

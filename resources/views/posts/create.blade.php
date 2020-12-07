@@ -25,7 +25,7 @@
             </div>
         </div> 
     </div>
-    <form action="{{route('posts.store')}}" method="POST">
+    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Titolo dell'annuncio</label>
