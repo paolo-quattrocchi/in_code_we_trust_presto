@@ -515,8 +515,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/paoloquattrocchi/wa/in_code_we_trust_presto/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/paoloquattrocchi/wa/in_code_we_trust_presto/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/alessia/wa/laravel/in_code_we_trust_presto/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/alessia/wa/laravel/in_code_we_trust_presto/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
