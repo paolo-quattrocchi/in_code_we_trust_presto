@@ -1,13 +1,12 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container-fluid">
-      <li >
-        <a href="index.html">
+      <a class="navbar-brand" href="/"></a>
+      
+        <a href="/">
         <span class="fa-stack fa-2x">
-          <i class="fal fa-circle fa-stack-2x fa-xs"></i>
-          <i class="fal fa-bolt fa-stack-1x "></i>
-        </span></li>
-      <a class="navbar-brand" href="#">Presto</a>
+          <i class="fal fa-bolt fa-stack-1x bg-nav"></i>
+        </span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +29,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               @foreach ($categories as $category)
-            <a class="dropdown-item" href="{{ route('categories.show', compact('category'))}}">{{$category->name}}</a>
+              <a class="dropdown-item" href="{{ route('categories.show', compact('category'))}}">{{$category->name}}</a>
               
               
               @endforeach
@@ -38,6 +37,9 @@
             </div>
           </li>
         </ul>
+        <form>
+          <input type="text" name="search" placeholder="Cerca">
+        </form>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
@@ -72,9 +74,26 @@
                 </li>
 
                 @endguest
-                <a href="{{route('posts.create')}}" class="btn btn-white ml-3 border border-success rounded-pill">Inserisci annuncio</a>
-                
+                <a href="{{route('posts.create')}}" class="btn btno btn-primary ml-3 rounded-pill text-dark">Inserisci annuncio</a>
         </ul>
       </div>
     </div>
   </nav>
+  <style>
+    .bg-nav{
+      color:rgb(07, 11,134);
+    }
+
+    .btno{
+     background:rgb(214, 218, 10);
+     
+    }
+  
+    .btno:hover {
+    background-color: green;
+    text-decoration: none;
+  }
+  nav{
+    background: rgb(0, 148, 221);
+  }
+    </style>
