@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Auth\User;
 
 class MakeUserRevisor extends Command
 {
@@ -43,7 +44,7 @@ class MakeUserRevisor extends Command
         $email = $this->ask("Inserisci la mail del revisore");
         $user = User::where('email' , $email)->first();
         if(!$user){
-            $this->error("uente non trovato");
+            $this->error("utente non trovato");
             return;
         }
         $user->is_revisor = true;
