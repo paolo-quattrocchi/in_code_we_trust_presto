@@ -1,4 +1,4 @@
-productsWrapper.innerHTML = ""
+/* productsWrapper.innerHTML = ""
 dataInput.forEach(prodotto => {
     let nome;
     if (prodotto.name.lenght < 10) {
@@ -70,5 +70,5 @@ scoresArray.forEach(el => {
        </div>
 
        `
-})
+}) */
 

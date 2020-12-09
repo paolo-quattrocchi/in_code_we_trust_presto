@@ -11,17 +11,11 @@
 </head>
 <body>
    <x-navbar />
-   <div style="height: 100px"></div>
+   
 
-
-
-
+   
 
     {{$slot}}
-
-
-
-
 
 
 
