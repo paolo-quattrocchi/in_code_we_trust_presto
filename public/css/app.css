@@ -11219,3 +11219,57 @@ a.text-dark:focus {
   }
 }
 
+/* SCSS HEX */
+
+/* SCSS HSL */
+
+/* SCSS RGB */
+
+/* SCSS Gradient */
+
+:root {
+  --second-color: #f39716ff;
+  --third-color: #080357ff;
+}
+
+.bg-nav {
+  background-color: var(--second-color);
+}
+
+.bg-btn {
+  background-color: var(--third-color);
+}
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url("https://source.unsplash.com/BtbjCFUvBXs/1920x1080");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1170px) {
+  .test {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1171px) {
+  .test2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .test3 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .test4 {
+    display: none;
+  }
+}
+
