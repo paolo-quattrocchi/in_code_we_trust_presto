@@ -26,49 +26,46 @@ $gradient-bottom-left: linear-gradient(315deg, #ffffffff, #f39716ff, #080357ff);
 $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
 
 :root {
-   --second-color:  #f39716ff;
-   --third-color:  #080357ff;
+    --second-color:  #f39716ff;
+    --third-color:  #080357ff;
 }
 
 .bg-nav {
     background-color: var(--second-color);
-
+    
 }
 
 .bg-btn{
-   background-color: var(--third-color) ;
-
+    background-color: var(--third-color) ;
+    
 }
 
 .masthead {
     height: 100vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-image: url('../../storage/app/public/media/header.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-  
-  @media screen and (max-width: 1170px) {
-    .test {
-        display: none;
-    }
 }
 
-@media screen and (min-width: 1171px) {
-    .test2 {
-        display: none;
-    }
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.45);
 }
 
-@media screen and (max-width: 991px) {
-    .test3 {
-        display: none;
-    }
+.search-bar {
+    border:none;
+    border-radius: 30px;
+    padding: 7px;
+    margin-left: 15px;
+    width: 320px;
 }
 
-@media screen and (min-width: 991px) {
-    .test4 {
-        display: none;
+@media (max-width:1190px) {
+    .search-bar {
+        width: 100%;
     }
 }

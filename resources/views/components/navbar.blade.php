@@ -1,14 +1,9 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-nav shadow">
+<nav class="navbar navbar-expand-xl bg-nav shadow navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"></a>
-      
-        <a href="/">
-        <span class="fa-stack fa-2x">
-          <i class="fal fa-bolt fa-stack-1x bg-nav"></i>
-        </span>
+      <a class="navbar-brand" href="/"><img src="/storage/media/logo.svg" width="50"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon text-white"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ">
@@ -38,7 +33,7 @@
           </li>
         </ul>
         <form>
-          <input type="text" name="search" placeholder="Cerca">
+          <input type="text" name="search" placeholder="Cerca" class="search-bar">
         </form>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
