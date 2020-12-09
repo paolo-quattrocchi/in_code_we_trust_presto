@@ -25,7 +25,7 @@
             </div>
         </div> 
     </div>
-    <form action="{{route('posts.store')}}" method="POST">
+    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Titolo dell'annuncio</label>
@@ -41,9 +41,9 @@
         </div>
         <div class="form-group">
             <label for="categories">Seleziona categoria</label>
-            <select class="custom-select" id="categories">
+            <select class="form-control" id="categories" name="category_id">
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                 
                 @endforeach
             </select>

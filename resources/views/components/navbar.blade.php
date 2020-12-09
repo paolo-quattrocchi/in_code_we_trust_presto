@@ -1,5 +1,6 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <span class="border border-primary"></span>
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Start Bootstrap</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +19,18 @@
           <li class="nav-item">
           <a class="nav-link" href="{{route('posts.create')}}">Pubblica annuncio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorie
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach ($categories as $category)
+            <a class="dropdown-item" href="{{ route('categories.show', compact('category'))}}">{{$category->name}}</a>
+              
+              
+              @endforeach
+              
+            </div>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">

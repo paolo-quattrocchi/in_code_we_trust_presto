@@ -23,8 +23,10 @@ class PostController extends Controller
     public function index()
     {
         //vogliamo mostrare tutti i post
-        $posts=Post::all();
+        $posts = Post::orderBy('id', 'desc')->limit(5)->get();
         return view('posts.index', compact('posts'));
+        
+
     }
 
     /**
@@ -47,18 +49,16 @@ class PostController extends Controller
      */
     public function store(StoreEcommercePost $request)
     {
-
-        Post::create($request->validated());
-
-
-
-
-
-
-        /* $post = Post::create($request->all());
-       // dd($request);
-        $post = Category::find(1)->posts;
-        $post->category()->save(); */
+        
+        //Post::create($request->validated());
+        
+        Post::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'category_id' => $request->category_id,
+            'image' => $request->file('image')->store('public/media'),
+        ]);
 
 
         /* $post = new Post();
@@ -66,7 +66,7 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->price = $request->input('price');
         $post->category_id = $request->input('category_id');
-        $post->image = $request->input('image');
+       // $post->image = $request->input('image');
         $post->save(); */
         return redirect()->back()->with('message', 'L\'annuncio è stato pubblicato correttamente');
     }
@@ -79,7 +79,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -90,7 +90,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -102,7 +102,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+       $post->update($request->all());
+     
+       return redirect()->back()->with('message', 'Complimenti hai modificato il post!');
     }
 
     /**
@@ -113,6 +115,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->back()->with('message','Hai cancellato il messaggio!');
     }
 }

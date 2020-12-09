@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('price');
-            $table->string('image');
+            $table->string('image')->default('https://picsum.photos/200/300');
             $table->timestamps();
         });
     }
