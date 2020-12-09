@@ -1,8 +1,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-  <span class="border border-primary"></span>
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <li >
+        <a href="index.html">
+        <span class="fa-stack fa-2x">
+          <i class="fal fa-circle fa-stack-2x fa-xs"></i>
+          <i class="fal fa-bolt fa-stack-1x "></i>
+        </span></li>
+      <a class="navbar-brand" href="#">Presto</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,7 +72,8 @@
                 </li>
 
                 @endguest
-                <a href="{{route('posts.create')}}" class="btn btn-primary ml-3">Inserisci annuncio</a>
+                <a href="{{route('posts.create')}}" class="btn btn-white ml-3 border border-success rounded-pill">Inserisci annuncio</a>
+                
         </ul>
       </div>
     </div>
