@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function GuzzleHttp\Promise\all;
 
@@ -51,14 +52,27 @@ class PostController extends Controller
     {
         
         //Post::create($request->validated());
+        $user = Auth::user();
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+        $post->price = $request->input('price');
+        $post->category_id = $request->input('category_id');
+        $post->image = $request->file('image')->store('public/media');
+        $post->user_id = $user->id;
+        $post->save();
         
+
+
+        /* $user = Auth::user();
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'price' => $request->price,
             'category_id' => $request->category_id,
             'image' => $request->file('image')->store('public/media'),
-        ]);
+            'user_id' => $user->id
+        ]); */
 
 
         /* $post = new Post();

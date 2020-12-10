@@ -1,4 +1,18 @@
 <x-layout>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        @if (session('access.denied.revisor.only'))
+        <div class="alert alert-danger">
+          <ul>
+            <li>{{session('access.denied.revisor.only')}}</li>
+          </ul>   
+        </div>
+        @endif
+      </div>
+    </div> 
+    
+  </div>
     <!-- Full Page Image Header with Vertically Centered Content -->
 <header class="masthead">
   <div class="overlay"></div>

@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('/posts/{post}/show', [PostController::class, 'show'])->name('posts.show');
@@ -34,3 +37,8 @@ Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('pos
 Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('categories.show');
+
+
+Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisors.index');
+Route::post('/revisor/post/{id}/accept', [RevisorController::class, 'accept'])->name('revisors.accept');
+Route::post('/revisor/post/{id}/reject', [RevisorController::class, 'reject'])->name('revisors.reject');
