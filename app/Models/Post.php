@@ -22,7 +22,7 @@ class Post extends Model
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'altro' => 'posts',
+            //'altro' => 'posts',
             //'post' => $post,
             
         ];

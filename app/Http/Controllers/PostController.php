@@ -25,7 +25,7 @@ class PostController extends Controller
     public function index()
     {
         //vogliamo mostrare tutti i post
-        $posts = Post::orderBy('id', 'desc')->limit(5)->get();
+        $posts = Post::orderBy('id', 'desc')->get();
         
         return view('posts.index', compact('posts'));
         

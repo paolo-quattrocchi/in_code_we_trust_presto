@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('welcome');
     }
 
     /**
@@ -23,10 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function welcome()
     {
-        $posts = Post::all();
-        return view('home',compact('posts'));
+        /* $posts = Post::all();
+        return view('home',compact('posts')); */
+        $posts = Post::orderBy('id', 'desc')->limit(5)->get();
+        
+        return view('posts.index', compact('posts'));
     }
 
    /*  public function store(StoreEcommercePost $request){
