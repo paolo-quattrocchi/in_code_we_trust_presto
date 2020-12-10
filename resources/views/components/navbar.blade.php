@@ -32,8 +32,9 @@
           </div>
         </li>
       </ul>
-      <form>
-        <input type="text" name="search" placeholder="Cerca" class="search-bar">
+      <form action="{{route('search')}}" method="GET">
+        <input type="text" name="q" placeholder="Cerca" class="search-bar">
+        <button class="btn btn-danger" type="submit">Invia</button>
       </form>
       <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->

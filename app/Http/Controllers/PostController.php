@@ -15,19 +15,33 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except('index','search');
     }
 
 
+   
 
 
     public function index()
     {
         //vogliamo mostrare tutti i post
         $posts = Post::orderBy('id', 'desc')->limit(5)->get();
+        
         return view('posts.index', compact('posts'));
         
 
+    }
+    public function search(Request $request)
+    {
+        //dd($request);
+        $q = $request->input('q');
+       
+        //$posts = Post::search($q)->get();
+        $posts = Post::search($q)->get();
+        
+        
+        //$posts = Post::all();
+        return view('search_results', compact('q', 'posts'));
     }
 
     /**

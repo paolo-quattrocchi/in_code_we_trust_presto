@@ -27,6 +27,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Rotta search 
+Route::get('/search', [PostController::class, 'search'])->name('search');
+
 
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -35,6 +38,7 @@ Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
+
 
 Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('categories.show');
 
