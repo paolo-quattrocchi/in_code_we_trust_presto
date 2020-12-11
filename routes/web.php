@@ -27,7 +27,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Rotta search 
 Route::get('/search', [PostController::class, 'search'])->name('search');
