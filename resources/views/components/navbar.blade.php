@@ -15,9 +15,9 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="{{route('posts.index')}}">Vedi gli annunci</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link text-white" href="{{route('posts.create')}}">Pubblica annuncio</a>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorie
@@ -34,7 +34,7 @@
       </ul>
       <form action="{{route('search')}}" method="GET">
         <input type="text" name="q" placeholder="Cerca" class="search-bar">
-        <button class="btn btn-danger" type="submit">Invia</button>
+        <button class="btn bg-btn  ml-3 rounded-pill text-white" type="submit">Cerca</button>
       </form>
       <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
@@ -59,6 +59,15 @@
         </li>
             
         @endif
+        <li class="nav-item">
+          @include('layouts._locale', ['lang' => 'it', 'nation' => 'it'])
+        </li>
+        <li class="nav-item">
+          @include('layouts._locale', ['lang' => 'en', 'nation' => 'gb'])
+        </li>
+        <li class="nav-item">
+          @include('layouts._locale', ['lang' => 'ro', 'nation' => 'ro'])
+        </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }}

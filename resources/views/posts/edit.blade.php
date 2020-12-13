@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="{{route('posts.update', compact('post'))}}" method="POST">
+                <form action="{{route('posts.update', compact('post'))}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
@@ -24,16 +24,20 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Prezzo</label>
-                        <input type="text" class="form-control" id="price" aria-describedby="price" name="price">
+                        <input type="text" class="form-control" id="price" aria-describedby="price" name="price" value="{{$post->price}}">
                     </div>
                     <div class="form-group">
                         <label for="categories">Seleziona categoria</label>
                         <select class="form-control" id="categories" name="category_id">
                             @foreach ($categories as $category)
-                            <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                            <option value="{{$category->id}}" {{$post->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                             
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Carica immagine</label>
+                        <input type="file" class="form-control" id="image" aria-describedby="image" name="image">
                     </div>
                     
                       <button type="submit" class="btn btn-primary">Modifica</button>

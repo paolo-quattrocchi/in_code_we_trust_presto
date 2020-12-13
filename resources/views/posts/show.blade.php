@@ -2,19 +2,28 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>{{$post->title}}</h1>
+        <h1 class="my-5">{{$post->title}}</h1>
         <p class="card-text">{{$post->price}} €</p>
         <img src="{{Storage::url($post->image)}}" class="card-img-top" alt="{{$post->title}}">
         <p class="card-text">{{$post->description}}</p>
         <p class="card-text">{{$post->created_at}}</p>                        
         <p class="card-text">{{$post->category->name}}</p> 
         <div class="slider">
-          <div> <img src="https://picsum.photos/202/300" alt=""></div>
-          <div> <img src="https://picsum.photos/203/300" alt=""></div>
-          <div> <img src="https://picsum.photos/204/300" alt=""></div>
-          <div> <img src="https://picsum.photos/204/300" alt=""></div>
-          <div> <img src="https://picsum.photos/205/300" alt=""></div>
-          <div> <img src="https://picsum.photos/201/300" alt=""></div>
+
+
+         @foreach ($post->images as $image)
+     
+            <div><img src="{{Storage::url($image->file)}}"></div>
+{{--                 <div class="col-md-8">
+                  {{$image->id}} <br>
+                  {{$image->file}} <br>
+                  {{Storage::url($image->file)}} <br>
+   
+                </div> --}}
+            
+        
+         @endforeach
+
         </div>                       
       </div>
     </div>

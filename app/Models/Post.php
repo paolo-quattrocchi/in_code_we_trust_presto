@@ -40,6 +40,10 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function images(){
+        return $this->hasMany(PostImage::class);
+    }
+
     static public function ToBeRevisionedCount(){
         return Post::where('is_accepted' , null)->count();
     }

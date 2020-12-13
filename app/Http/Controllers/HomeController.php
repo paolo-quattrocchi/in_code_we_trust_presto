@@ -34,7 +34,12 @@ class HomeController extends Controller
         return view('home',compact('posts')); */
         $posts = Post::orderBy('id', 'desc')->where('is_accepted', true)->limit(5)->get();
         
-        return view('posts.index', compact('posts'));
+        return view('welcome', compact('posts'));
+    }
+
+    public function locale($locale){
+        session()->put('locale', $locale);
+        return redirect()->back();
     }
 
    /*  public function store(StoreEcommercePost $request){

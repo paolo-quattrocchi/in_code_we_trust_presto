@@ -28,9 +28,11 @@ Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/locale/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 //Rotta search 
 Route::get('/search', [PostController::class, 'search'])->name('search');
+
 
 
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
@@ -41,6 +43,11 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.e
 Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
+//Upload images Dropzone
+Route::post('/post/images/upload', [PostController::class, 'uploadImage'])->name('post.images.upload');
+Route::delete('/post/images/remove', [PostController::class, 'removeImage'])->name('post.images.remove');
+Route::get('/post/images', [PostController::class, 'getImages'])->name('post.images');
+
 
 Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('categories.show');
 
@@ -48,3 +55,5 @@ Route::get('/category/{category}/show', [CategoryController::class, 'show'])->na
 Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisors.index');
 Route::post('/revisor/post/{id}/accept', [RevisorController::class, 'accept'])->name('revisors.accept');
 Route::post('/revisor/post/{id}/reject', [RevisorController::class, 'reject'])->name('revisors.reject');
+Route::get('/request/revisor', [RevisorController::class, 'request'])->name('revisors.request');
+Route::post('/request/send', [RevisorController::class, 'sendRequest'])->name('revisors.send.request');
