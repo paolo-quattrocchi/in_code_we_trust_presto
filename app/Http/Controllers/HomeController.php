@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
 
     public function locale($locale){
-        session()->put('locale' , $locale);
+        session()->put('locale', $locale);
         return redirect()->back();
     }
 

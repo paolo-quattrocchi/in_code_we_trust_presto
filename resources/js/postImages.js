@@ -21,15 +21,6 @@ $(function() {
             addRemoveLinks: true,
 
 
-
-
-
-
-
-
-
-
-
             init:function(){
                 
                 $.ajax({
@@ -59,23 +50,7 @@ $(function() {
 
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-                });
+               });
                 
                 myDropzone.on("success", function(file, response){
                     file.serverId = response.id;

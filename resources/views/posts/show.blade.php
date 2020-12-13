@@ -11,17 +11,17 @@
         <div class="slider">
 
 
-         @foreach ($images->$post as $image)
-          <div class="row">
-            <div class="col-md-4"><img src="{{Storage::url($image->file)}}" class="rounded" alt=""></div>
-                <div class="col-md-8">
+         @foreach ($post->images as $image)
+     
+            <div><img src="{{Storage::url($image->file)}}"></div>
+{{--                 <div class="col-md-8">
                   {{$image->id}} <br>
                   {{$image->file}} <br>
                   {{Storage::url($image->file)}} <br>
    
-                </div>
+                </div> --}}
             
-          </div>
+        
          @endforeach
 
         </div>                       

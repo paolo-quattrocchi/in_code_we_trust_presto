@@ -28,11 +28,11 @@ Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/locale/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 //Rotta search 
 Route::get('/search', [PostController::class, 'search'])->name('search');
 
-Route::post('/locale/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
