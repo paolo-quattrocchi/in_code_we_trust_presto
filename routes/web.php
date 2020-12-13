@@ -32,6 +32,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //Rotta search 
 Route::get('/search', [PostController::class, 'search'])->name('search');
 
+Route::post('/locale/{locale}', [HomeController::class, 'locale'])->name('locale');
+
 
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

@@ -37,6 +37,11 @@ class HomeController extends Controller
         return view('welcome', compact('posts'));
     }
 
+    public function locale($locale){
+        session()->put('locale' , $locale);
+        return redirect()->back();
+    }
+
    /*  public function store(StoreEcommercePost $request){
         StoreEcommercePost::create([
             'title'=>$request->input(('title')),
