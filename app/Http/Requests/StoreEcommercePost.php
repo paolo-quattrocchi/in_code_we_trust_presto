@@ -24,22 +24,26 @@ class StoreEcommercePost extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'image' => 'required  | image',
-            'category_id' => 'required'
+            'title' => 'required | max:25',
+            'description' => 'required | min:50',
+            'price' => 'required | max:8',
+            'image' => 'required  | image | max:600',
+            'category_id' => 'required',
         ];
     }
 
     public function messages()
     {
         return[
-            'title.required' => 'Campo obbligatorio',
-            'description.required' => 'Campo obbligatorio',
-            'price.required' => 'Campo obbligatorio',
-            'image.required' => 'Campo obbligatorio',
-            'category_id.required' => 'Campo obbligatorio',
+            'title.required' => 'Titolo obbligatorio',
+            'description.required' => 'Descrizione obbligatoria',
+            'price.required' => 'Prezzo obbligatorio',
+            'image.required' => 'Inserisci immagine',
+            'title.max' => 'Titolo troppo lungo massimo 25 caratteri',
+            'description.min' => 'Descrizione troppo corta minimo 50 caratteri',
+            'image.image' => 'L\'immgine deve essere una png, jpeg',
+            'image.max' => 'L\'immagine deve essere massimo di 600kb',
+            'price.max' => 'Non sparare minchiate',
         ];
     }
 }

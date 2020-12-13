@@ -69,3 +69,10 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
         width: 100%;
     }
 }
+
+.trunc{
+    width:250px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }

@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEcommercePost;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostImage;
 use App\Models\User;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use function GuzzleHttp\Promise\all;
 
@@ -49,11 +52,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //vogliamo fare un form per creare un nuovo post
         $categories = Category::all();
-        return view('posts.create', compact('categories'));
+        $uniqueSecret = $request->old('uniqueSecret', base_convert(sha1(uniqid(mt_rand())), 16, 36));
+        return view('posts.create', compact('categories', 'uniqueSecret'));
     }
 
     /**
@@ -75,9 +79,25 @@ class PostController extends Controller
         $post->image = $request->file('image')->store('public/media');
         $post->user_id = $user->id;
         $post->save();
+        $uniqueSecret = $request->input('uniqueSecret');
         
-
-
+        $images = session()->get("images.{$uniqueSecret}", []);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+        $images = array_diff($images, $removedImages);
+        //dd($image);
+        foreach ($images as $image){
+            //dd($image);
+            $i = new PostImage();
+            $fileName = basename($image);
+            $newFileName = "public/posts/{$user->posts->last()->id}/{$fileName}";
+            Storage::move($image, $newFileName);
+            $i->file = $fileName;
+            $i->post_id = $user->posts->last()->id;
+            $i->save();
+        }
+        
+        //File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+        
         /* $user = Auth::user();
         Post::create([
             'title' => $request->title,
@@ -97,6 +117,41 @@ class PostController extends Controller
        // $post->image = $request->input('image');
         $post->save(); */
         return redirect()->back()->with('message', 'L\'annuncio è stato pubblicato correttamente');
+    }
+
+    public function uploadImage(Request $request){
+        $uniqueSecret = $request->input('uniqueSecret');
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        session()->push("images.{$uniqueSecret}", $fileName);
+        return response()->json(
+            [
+                'id' =>$fileName
+            ]
+        );
+    }
+
+    public function removeImage(Request $request){
+        $uniqueSecret = $request->input('uniqueSecret');
+        $fileName = $request->input('id');
+        session()->push("removedimages.{$uniqueSecret}", $fileName);
+        Storage::delete($fileName);
+        return response()->json('ok');
+    }
+
+    public function getImages(Request $request)
+    {
+        $uniqueSecret = $request->input('uniqueSecret');
+        $images = session()->get("images.{$uniqueSecret}", []);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+        $images = array_diff($images, $removedImages);
+        $data = [];
+        foreach ($images as $image){
+            $data[] = [
+                'id' => $image,
+                'src' => Storage::url($image)
+            ];
+        }
+        return response()->json($data);
     }
 
     /**
