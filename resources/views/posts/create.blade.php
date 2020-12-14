@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container">
+    <div class="container my-3">
         {{-- <div class="row">
             <div class="col-12">
                 @if ($errors->any())
@@ -31,28 +31,28 @@
                 @csrf
                 <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
                 <div class="form-group">
-                    <label for="title">Titolo dell'annuncio</label>
+                    <label for="title">{{ __('ui.Titolo_annuncio') }}</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title" name="title" value="{{old('title')}}">
                     @error('title')
                     <small class="error text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="description">Descrizione dell'annuncio</label>
+                    <label for="description">{{ __('ui.Descrizione_annuncio') }}</label>
                     <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3" name="description">{{old('description')}}</textarea>
                     @error('description')
                     <small class="error text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="price">Prezzo</label>
+                    <label for="price">{{ __('ui.Prezzo') }}</label>
                     <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" aria-describedby="price" name="price" value="{{old('price')}}">
                     @error('price')
                     <small class="error text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="categories">Seleziona categoria</label>
+                    <label for="categories">{{ __('ui.Categoria') }}</label>
                     <select class="form-control" id="categories" name="category_id">
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
@@ -62,7 +62,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="image">Carica immagine</label>
+                    <label for="image">{{ __('ui.Immagine') }}</label>
                     <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="image" name="image" value="{{old('image')}}">
                     @error('image')
                     <small class="error text-danger">{{ $message }}</small>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="images" class="col-md-12 col-form-label">Altre immagini</label>
+                    <label for="images" class="col-md-12 col-form-label">{{ __('ui.Immagini') }}</label>
                     <div class="col-md-12">
                         <div class="dropzone" id="drophere"></div>
                         @error('images')
@@ -81,7 +81,7 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn bg-btn rounded-pill text-white">Pubblica</button>
+                <button type="submit" class="btn bg-btn rounded-pill text-white">{{ __('ui.Pubblica') }}</button>
             </form>
             
         </div>

@@ -8,6 +8,7 @@
         <p class="card-text">{{$post->description}}</p>
         <p class="card-text">{{$post->created_at}}</p>                        
         <p class="card-text">{{$post->category->name}}</p> 
+        <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p>
         <div class="slider">
 
 

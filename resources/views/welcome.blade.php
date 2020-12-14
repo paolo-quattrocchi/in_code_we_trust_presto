@@ -20,8 +20,8 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
-          <h1 class="font-weight-light">{{ __('ui.welcome') }}</h1>
-          <p class="lead">A great starter layout for a landing page</p>
+          <h1 class="font-weight-light">{{ __('ui.Welcome') }}</h1>
+          <p class="lead">{{ __('ui.Presto') }}</p>
         </div>
       </div>
     </div>
@@ -38,18 +38,18 @@
             <p class="card-text trunc">{{$post->description}}</p>
             <p class="card-text">{{$post->created_at}}</p>                        
             <p class="card-text">{{$post->category->name}}</p> 
-            <p>Autore: {{$post->user->name}}</p> 
-            <a href="{{route('posts.show', compact('post'))}}" class="btn bg-btn rounded-pill text-white">Visualizza</a>
+            <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p> 
+            <a href="{{route('posts.show', compact('post'))}}" class="btn bg-btn rounded-pill text-white">{{ __('ui.Visualizza') }}</a>
             
             
             @if (Auth::id() == $post->user->id)
             
-            <a href="{{route('posts.edit', compact('post'))}}" class="btn bg-btn rounded-pill text-white">Modifica</a>
+            <a href="{{route('posts.edit', compact('post'))}}" class="btn bg-btn rounded-pill text-white">{{ __('ui.Modifica') }}</a>
             
             <form action="{{route('posts.destroy', compact('post'))}}" method="POST">
               @csrf
               @method('DELETE')
-              <button class="btn btn-danger rounded-pill text-white mt-2">Cancella</button>
+              <button class="btn btn-danger rounded-pill text-white mt-2">{{ __('ui.Cancella') }}</button>
             </form>
             
             @endif
