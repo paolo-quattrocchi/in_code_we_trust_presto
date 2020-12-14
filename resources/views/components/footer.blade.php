@@ -1,7 +1,7 @@
 <footer class="container-fluid bg-dark mt-5 px-3 px-md-5">
     <div class="row pt-3 text-white">
         <div class="col-12">
-            <img src="./media/Presto-logo-BCAFD5CAF8-seeklogo.com.png" width="120px" alt="">
+            <h3 class="font-weight-bold">Presto!</h3>
 
         </div>
         <div class="col-12 col-md-3 pr-5">

@@ -7,9 +7,9 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostImage;
 use App\Models\User;
-use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 use function GuzzleHttp\Promise\all;
@@ -91,12 +91,16 @@ class PostController extends Controller
             $fileName = basename($image);
             $newFileName = "public/posts/{$user->posts->last()->id}/{$fileName}";
             Storage::move($image, $newFileName);
-            $i->file = $fileName;
+            $i->file = $newFileName;
             $i->post_id = $user->posts->last()->id;
             $i->save();
         }
         
-        //File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+          
+                  
+ 
+        
+        File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
         
         /* $user = Auth::user();
         Post::create([
@@ -162,7 +166,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        
         return view('posts.show', compact('post'));
+
     }
 
     /**

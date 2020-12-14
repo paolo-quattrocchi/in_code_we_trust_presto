@@ -9,21 +9,13 @@
         <p class="card-text">{{$post->created_at}}</p>                        
         <p class="card-text">{{$post->category->name}}</p> 
         <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p>
+        @foreach ($post->images as $image)
+        <img src="{{Storage::url($image->file)}}">
+       @endforeach
         <div class="slider">
 
 
-         @foreach ($post->images as $image)
-     
-            <div><img src="{{Storage::url($image->file)}}"></div>
-{{--                 <div class="col-md-8">
-                  {{$image->id}} <br>
-                  {{$image->file}} <br>
-                  {{Storage::url($image->file)}} <br>
-   
-                </div> --}}
-            
         
-         @endforeach
 
         </div>                       
       </div>
