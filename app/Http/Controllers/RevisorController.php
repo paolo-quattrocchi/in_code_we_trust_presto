@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\RequestRevisor;
 use App\Models\Post;
+use App\Mail\RequestRevisor;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-
 use function GuzzleHttp\Promise\all;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class RevisorController extends Controller
 {
@@ -19,6 +21,9 @@ class RevisorController extends Controller
     {
         //dd('Solo per revisori del piffero');
         $post = Post::where('is_accepted', null)->orderBy('created_at', 'desc')->first();
+        $user = Auth::user();
+        //$posts_all = Post::where("user_id", "=", $user->id)->where('is_accepted', true)->get();
+        //$posts_all = Post::orderBy('id', 'desc')->where('is_accepted', true)->get();
         return view('revisors.index', compact('post'));
     }
 
