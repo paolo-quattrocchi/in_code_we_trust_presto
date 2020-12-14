@@ -33,8 +33,11 @@ return [
     'Descrizione_annuncio' => 'Descrizione dell\'annuncio',
     'Prezzo' => 'Prezzo',
     'Categoria' => 'Seleziona categoria',
-    'Immagine' => 'Carica immagine',
+    'Immagine' => 'Carica immagine di copertina',
     'Immagini' => 'Altre immagini',
     'Pubblica' => 'Pubblica',
     'Modifica' => 'Modifica',
+    'Data' => 'Caricato il',
+    'Categoria' => 'Categoria',
+    'Search_string' => 'Hai cercato il termine',
 ];

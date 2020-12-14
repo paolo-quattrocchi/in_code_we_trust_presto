@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEcommercePost;
+use App\Jobs\ResizeImage;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostImage;
@@ -91,6 +92,11 @@ class PostController extends Controller
             $fileName = basename($image);
             $newFileName = "public/posts/{$user->posts->last()->id}/{$fileName}";
             Storage::move($image, $newFileName);
+            dispatch(new ResizeImage(
+                $newFileName, 
+                450,
+                300
+            ));
             $i->file = $newFileName;
             $i->post_id = $user->posts->last()->id;
             $i->save();
@@ -126,6 +132,11 @@ class PostController extends Controller
     public function uploadImage(Request $request){
         $uniqueSecret = $request->input('uniqueSecret');
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        dispatch(new ResizeImage(
+            $fileName, 
+            120,
+            120
+        ));
         session()->push("images.{$uniqueSecret}", $fileName);
         return response()->json(
             [
@@ -152,7 +163,7 @@ class PostController extends Controller
         foreach ($images as $image){
             $data[] = [
                 'id' => $image,
-                'src' => Storage::url($image)
+                'src' => PostImage::getUrlByFilePath($image, 120, 120)
             ];
         }
         return response()->json($data);

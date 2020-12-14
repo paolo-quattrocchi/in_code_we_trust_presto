@@ -33,8 +33,11 @@ return [
     'Descrizione_annuncio' => 'Descrierea reclamei',
     'Prezzo' => 'Preț',
     'Categoria' => 'Selecteaza categoria',
-    'Immagine' => 'Incarca imaginea',
+    'Immagine' => 'Încărcați imaginea de copertă',
     'Immagini' => 'Alte poze',
     'Pubblica' => 'Publica',
     'Modifica' => 'Editați',
+    'Data' => 'Încărcat pe',
+    'Categoria' => 'Categorie',
+    'Search_string' => 'Ați căutat termenul',
 ];

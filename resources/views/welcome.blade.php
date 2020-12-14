@@ -36,8 +36,8 @@
             <p class="card-text">{{$post->price}} €</p>
             <img src="{{Storage::url($post->image)}}" class="card-img-top img-fluid img-responsive" alt="{{$post->title}}">
             <p class="card-text trunc">{{$post->description}}</p>
-            <p class="card-text">{{$post->created_at}}</p>                        
-            <p class="card-text">{{$post->category->name}}</p> 
+            <p class="card-text">{{ __('ui.Data') }}: {{$post->created_at}}</p>                        
+            <p class="card-text">{{ __('ui.Categoria') }}: {{$post->category->name}}</p> 
             <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p> 
             <a href="{{route('posts.show', compact('post'))}}" class="btn bg-btn rounded-pill text-white">{{ __('ui.Visualizza') }}</a>
             
