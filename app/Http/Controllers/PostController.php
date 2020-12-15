@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEcommercePost;
-use App\Jobs\ResizeImage;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostImage;
 use App\Models\User;
+use App\Models\Category;
+use App\Jobs\ResizeImage;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearchImage;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreEcommercePost;
 
-use function GuzzleHttp\Promise\all;
 
 class PostController extends Controller
 {
@@ -97,9 +99,13 @@ class PostController extends Controller
                 450,
                 300
             ));
+            
+            
             $i->file = $newFileName;
             $i->post_id = $user->posts->last()->id;
             $i->save();
+            dispatch(new GoogleVisionSafeSearchImage($i->id));
+            dispatch(new GoogleVisionLabelImage($i->id));
         }
         
           
@@ -137,6 +143,9 @@ class PostController extends Controller
             120,
             120
         ));
+
+
+
         session()->push("images.{$uniqueSecret}", $fileName);
         return response()->json(
             [

@@ -5,7 +5,7 @@
 <div class="container py-5">
     <div class="row h100 align-items-center">
         <div class="col-8">
-            <h1 class="text-first">Paolo Quattrocchi</h1>
+            <h1 class="text-first">{{Auth::user()->name}}</h1>
         </div>
     </div>
 </div>
@@ -16,8 +16,8 @@
             <img class="img-fluid d-block mx-auto mt-3" src="https://picsum.photos/200/200" alt="">
         </div>
         <div class="col-12 col-md-8">
-            <p class="text-second font-weight-bold h5 mt-3">Paolo Quattrocchi</p>
-            <p class="text-first font-weight-bold mb-0">Iscritto dal: <span class="text-secondary">12/12/12</span></p>
+            <p class="text-second font-weight-bold h5 mt-3">{{Auth::user()->name}}</p>
+            <p class="text-first font-weight-bold mb-0">Iscritto dal: <span class="text-secondary">{{Auth::user()->created_at->format('d-m-Y')}}</span></p>
             <p class="text-first font-weight-bold mb-5">Media feedback: <span title="Positivo" class="text-secondary">4/5</span></p>
             <p class="text-second font-weight-bold h5">Biografia</p>
             <p class="text-secondary mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quis, pariatur tempora sapiente omnis accusantium odio nihil ab esse blanditiis, totam ipsa suscipit rem libero placeat similique. At, aliquam deleniti!</p>
@@ -92,141 +92,9 @@
     </div>
 </div>
 
-{{-- <div class="container my-5 py-5">
-    <div class="row">
-        <div class="col-12 pb-5">
-            <p class="text-second font-weight-bold h5">I tuoi annunci</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-responsive">
-                <thead class="bg-first text-white">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome annuncio</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Caricato il</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Offerte</th>
-                        <th scope="col">Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Fiat 600</td>
-                        <td>Auto</td>
-                        <td>12/12/12</td>
-                        <td>Buone condizioni</td>
-                        <td>4</td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>TV Bravia SONY</td>
-                        <td>Elettronica</td>
-                        <td>02/03/04</td>
-                        <td>Senza confezione originale</td>
-                        <td>17</td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Polo Lacoste</td>
-                        <td>Abbigliamento</td>
-                        <td>05/09/10</td>
-                        <td>Scolorita</td>
-                        <td>7</td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> --}}
 
-{{-- <div class="container my-5 py-5">
-    <div class="row">
-        <div class="col-12 pb-5">
-            <p class="text-second font-weight-bold h5">Prodotti controllati</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-responsive">
-                <thead class="bg-first text-white">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome utente</th>
-                        <th scope="col">Nome annuncio</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Prezzo</th>
-                        <th scope="col">Caricato il</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Simplicio</td>
-                        <td>Fiat 600</td>
-                        <td>Auto</td>
-                        <td>2000 $</td>
-                        <td>12/12/12</td>
-                        <td><i class="fas fa-check text-success"></i></td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Sagredo</td>
-                        <td>TV Bravia SONY</td>
-                        <td>Elettronica</td>
-                        <td>300 $</td>
-                        <td>02/03/04</td>
-                        <td><i class="fas fa-times text-danger"></i></td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Salviati</td>
-                        <td>Polo Lacoste</td>
-                        <td>Abbigliamento</td>
-                        <td>50 $</td>
-                        <td>05/09/10</td>
-                        <td><i class="fal fa-hourglass text-warning"></i></td>
-                        <td><a href=""><i class="far fa-external-link"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> --}}
 
-{{-- <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <p class="text-second font-weight-bold h5 pb-5">L'annuncio ha questi punteggi</p>
-        </div>
-    </div>
-    <div id="scoresWrapper" class="row">
-
-    </div>
-    <div class="row mt-3">
-        <div class="col-12 text-right">
-            <button class="btn-success btn-lg px-5">
-                <i class="fas fa-check text-light mr-2"></i>Accetta
-            </button>
-            <button class="btn-danger btn-lg px-5">
-                <i class="fas fa-times text-light mr-2"></i>Rifiuta
-            </button>
-        </div>
-    </div>
-  </div> --}}
   @if ($post)
-      
- 
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-12">
@@ -267,6 +135,50 @@
               </div>
           </div>
       </div>
+
+
+
+
+<div class="row">
+    @foreach ($post->images as $image)
+    <div class="col-md-4">
+        <div><img src="{{$image->getUrl(450, 300)}}"></div>
+        
+    </div>
+
+    <div class="col-md-8">
+        Adult: {{$image->adult}} <br>
+        Spoof: {{$image->spoof}} <br>
+        Medical: {{$image->medical}} <br>
+        Violence: {{$image->violence}} <br>
+        Racy: {{$image->racy}} <br>
+        {{$image->id}} <br>
+        {{$image->file}} <br>
+        {{Storage::url($image->file)}} <br>
+
+        <b>Labels</b><br>
+        <ul>
+            @if ($image->labels)
+                @foreach ($image->labels as $label)
+                    <li>{{$label}}</li>
+                @endforeach
+            @endif
+        </ul>
+    </div>
+    @endforeach
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="row justify-content-center mt-5">
         <div class="col-md-6">
         <form action="{{route('revisors.reject' , $post->id)}}" method="POST">
