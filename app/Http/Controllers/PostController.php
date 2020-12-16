@@ -224,6 +224,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $images = $post->images;
+        foreach ($images as $image){
+            $image->delete();
+        }
         $post->delete();
         return redirect()->back()->with('message','Hai cancellato il messaggio!');
     }
