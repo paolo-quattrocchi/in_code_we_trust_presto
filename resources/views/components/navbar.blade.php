@@ -78,7 +78,7 @@
           </form>
         </div>
       </li>
-
+      @endguest
       {{-- Bandierine dropdown --}}
       <li class="nav-item dropdown">
         <a id="lang" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -99,7 +99,7 @@
       </div>
     </li>
       
-      @endguest
+     
       <a href="{{route('posts.create')}}" class="btn bg-btn  ml-3 rounded-pill text-white">{{ __('ui.Inserisci') }}</a>
 
     </ul>

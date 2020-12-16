@@ -80,11 +80,11 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
-  }
+}
 
-  .card, .card .card-body{
-      border-radius: 14px;
-  }
+.card, .card .card-body{
+    border-radius: 14px;
+}
 
 .card .card-img {
     height: 220px;
@@ -93,6 +93,6 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
     border-top-right-radius: 14px;
 }
 
-  .card img{
+.card img{
     object-fit: cover;
-  }
+}

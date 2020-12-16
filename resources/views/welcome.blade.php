@@ -12,7 +12,7 @@
       </div>
     </div> 
   </div>
-
+  
   
   <!-- Full Page Image Header with Vertically Centered Content -->
   <header class="masthead">
@@ -21,7 +21,7 @@
       <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
           <h1 class="font-weight-light display-4 text-white">{{ __('ui.Welcome') }}</h1>
-          <p class="lead">{{ __('ui.Presto') }}</p>
+          <p class="lead text-white">{{ __('ui.Presto') }}</p>
         </div>
       </div>
     </div>
@@ -71,17 +71,3 @@
 </div>
 
 </x-layout>
-
-<style>
-  .img-responsive {
-    width: auto;
-    height: 300px;
-  }
-  
-  .trunc{
-    width:250px; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-  }
-</style>

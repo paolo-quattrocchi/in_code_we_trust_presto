@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEcommercePost;
-
+use App\Jobs\GoogleVisionRemoveFaces;
 
 class PostController extends Controller
 {
@@ -94,18 +94,18 @@ class PostController extends Controller
             $fileName = basename($image);
             $newFileName = "public/posts/{$user->posts->last()->id}/{$fileName}";
             Storage::move($image, $newFileName);
-            dispatch(new ResizeImage(
-                $newFileName, 
-                450,
-                300
-            ));
             
             
             $i->file = $newFileName;
             $i->post_id = $user->posts->last()->id;
             $i->save();
-            dispatch(new GoogleVisionSafeSearchImage($i->id));
-            dispatch(new GoogleVisionLabelImage($i->id));
+           
+            GoogleVisionSafeSearchImage::withChain([
+                new GoogleVisionLabelImage($i->id),
+                new GoogleVisionRemoveFaces($i->id),
+                new ResizeImage($i->file, 450, 300)
+            ])->dispatch($i->id);
+            
         }
         
           
