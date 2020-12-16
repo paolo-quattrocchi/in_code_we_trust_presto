@@ -96,3 +96,13 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
 .card img{
     object-fit: cover;
 }
+
+.bg-index {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    background-image: url('../../storage/app/public/media/bg-index.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -72,3 +72,46 @@ scoresArray.forEach(el => {
        `
 }) */
 
+
+
+let scores = {
+    "Violenza": 32,
+    "Razzismo": 12,
+    "Sangue": 50,
+    "Contenuto medico": 70,
+    "Contenuto per adulti": 55,
+}
+
+let scoresArray = Object.entries(scores).sort((a, b) => b[1] - a[1])
+console.log(scoresArray)
+
+let scoresWrapper = document.querySelector('#scoresWrapper')
+
+scoresArray.forEach(el => {
+
+    let color;
+
+    if (el[1] < 34) {
+        color = "success"
+    } else if (el[1] < 67) {
+        color = "warning"
+    } else {
+        color = "danger"
+    }
+
+    let div = document.createElement('div')
+    div.classList.add('col-12', 'my-2')
+    div.innerHTML =
+
+
+        `
+       <p>${el[0].toUpperCase()}: ${el[1]}</p>
+       <div class="progress">
+          <div class="progress-bar bg-${color}" role="progressbar" style="width: ${el[1]}%"></div>
+       </div>
+
+       `
+
+    scoresWrapper.appendChild(div)
+
+})

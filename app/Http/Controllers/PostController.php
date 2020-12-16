@@ -229,6 +229,6 @@ class PostController extends Controller
             $image->delete();
         }
         $post->delete();
-        return redirect()->back()->with('message','Hai cancellato il messaggio!');
+        return redirect(route('welcome'))->with('message','Hai cancellato il messaggio!');
     }
 }

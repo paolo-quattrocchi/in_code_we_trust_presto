@@ -15,7 +15,19 @@
           <div><img src="{{$image->getUrl(450, 300)}}"></div>
           @endforeach
         </div>      
-                         
+           
+        @if (Auth::id() == $post->user->id)
+            
+            <a href="{{route('posts.edit', compact('post'))}}" class="btn bg-btn rounded-pill text-white">{{ __('ui.Modifica') }}</a>
+            
+            <form action="{{route('posts.destroy', compact('post'))}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger rounded-pill text-white mt-2">{{ __('ui.Cancella') }}</button>
+            </form>
+            
+            @endif
+
       </div>
     </div>
   </div>
