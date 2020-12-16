@@ -41,7 +41,8 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
 }
 
 .masthead {
-    height: 100vh;
+    position: relative;
+    height: 80vh;
     min-height: 500px;
     background-image: url('../../storage/app/public/media/header.jpg');
     background-size: cover;
@@ -49,11 +50,15 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
     background-repeat: no-repeat;
 }
 
+.masthead h1 {
+    color:var(--second-color); 
+}
+
 .overlay {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.55);
 }
 
 .search-bar {
@@ -75,4 +80,19 @@ $gradient-radial: radial-gradient(#ffffffff, #f39716ff, #080357ff);
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
+  }
+
+  .card, .card .card-body{
+      border-radius: 14px;
+  }
+
+.card .card-img {
+    height: 220px;
+    overflow: hidden;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+  .card img{
+    object-fit: cover;
   }

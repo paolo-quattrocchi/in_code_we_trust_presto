@@ -1,7 +1,7 @@
 <footer class="container-fluid bg-dark mt-5 px-3 px-md-5">
     <div class="row pt-3 text-white">
         <div class="col-12">
-            <img src="./media/Presto-logo-BCAFD5CAF8-seeklogo.com.png" width="120px" alt="">
+            <h3 class="font-weight-bold">Presto!</h3>
 
         </div>
         <div class="col-12 col-md-3 pr-5">
@@ -18,24 +18,24 @@
         <div class="col-12 col-md-3 mb-4">
             <ul>
                 <li class="pb-2">
-                    <a class="text-white text-decoration-none" href="">Aiuto</a>
+                    <a class="text-white text-decoration-none" href="">{{ __('ui.Aiuto') }}</a>
                 </li>
                 <li class="pb-2">
-                    <a class="text-white text-decoration-none" href="">Regole</a>
+                    <a class="text-white text-decoration-none" href="">{{ __('ui.Regole') }}</a>
                 </li>
                 <li class="pb-2">
-                    <a class="text-white text-decoration-none" href="">Privacy</a>
+                    <a class="text-white text-decoration-none" href="">{{ __('ui.Privacy') }}</a>
                 </li>
                 <li class="pb-2">
-                    <a class="text-white text-decoration-none" href="">Condizioni</a>
+                    <a class="text-white text-decoration-none" href="">{{ __('ui.Condizioni') }}</a>
                 </li>
                 <li class="pb-2">
-                    <a class="text-white text-decoration-none" href="">Mappa del sito</a>
+                    <a class="text-white text-decoration-none" href="">{{ __('ui.Mappa') }}</a>
                 </li>
             </ul>
         </div>
         <div class="col-12 col-md-3 mb-4">
-            <h6>Saguici:</h6>
+            <h6>{{ __('ui.Seguici') }}:</h6>
             <ul class="list-unstyled">
                 <li class="pb-2">
                     <i class="fab fa-facebook-f margin-coustom mr-3"></i>

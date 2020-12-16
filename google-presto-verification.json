@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "presto-vision-api",
+  "private_key_id": "eb1776839c6f76f86fd206b796082b684685bce8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDVykd6iZjUUeza\ndWX+4CTmcrl9zcoM6LXuQL7SmEyRzm3mMIxXJQ4nu/m5V5HDN8qsn9zSrK3Yrzzb\n4CnHw+UF5mVQ/1tWExAZhABD++PmkqE2xWUu5XYPpy5myblZucgUSILXUUFcrQHX\niVHOs/49lIfWdGqzU5YGSRgOG6tdsVeITvapRuPo953s5JJPvKkXGSsJcfdLjuxj\nMHHXrD4Z9VhRR4yTII06aZGZUZTlXuyYE55j47Fmm/yDOXamwzaYRzPfpegYcpPp\n/LiMCKmgSaV8p/C5LCP+n+BHgfCcbu6bZuEyDYJTbcKajYFB10g8n5w3jXPZZxoW\namEMvWxBAgMBAAECggEAAX4hUXd1pUvczmoB7Y2P7GT81budWh7jgEzxmCOp6zMI\nsjyrX4NkeH4NQGWeYKwlIonrid6x8wtG2UEqLC56Yk1pboSYlRQFKYHHWlzUn/GX\npbvV7kXPX8zFcUBze8R6jhEIitYoJuxqpiAxEvNPm+Cg3IGLv4Hz+vTBMdNbIbMT\nRDFr6/LumcTmlKFqzybE6uEZBkbgYxj0U7ZmiaEY72jbOAyAxbdHpHuBn5/6DmOj\n/2yMVnxaheSHdzhQ6iaS4fDpxZSx8gldjwk+H/go/yGJ8ssV+0jB5a20ZPtBXiPF\nbRRCN6J8LwQwYV8q8JU76H2yHJZ1K6MbwN8Zej5ccQKBgQD2WprvILHDjGhGKa1w\nlYkLhqU+r7+EIyKHzCmMZqgEHjEbI+dR/LEnEYNhxz4I7aLgI/2K3MckOir+p5ta\nWlfHd4ws+23Vs+XHTTy4gzEVg3JfIRI0UK1HDQ3YD0vwr9sxeGjtsVp8c7c2/IdM\nAQg8SEA94cNAGUAiMBia8p6BqQKBgQDeKUMj/6Sfqo6uUlhoImdrmI51TU3vU39R\nJgdE5/dek9690CXpb8GsIdKXzpH6EetLB8IamGTzOw0pE6OhPFd2HOHKVUuXdiOR\nOYKaO9+R5f5wdTUrHUEUvTQwNcvJV5brPG/2RDX95pdR6YZKR3jBO+D3VDZoGbJJ\n6yg5oA/k2QKBgQDrDPP66NTzYUo0d5uWafbCWovbzdALgYJ20yNpZKE2nJ/55z3U\niid0wU77wiC8YBAhj/Vfwtr3A9D1/HFLuhs6pCPI33Sii+zXRiiDXBk/D5XWkjVO\nWRObUSc+WQn58bBP+TUUZT2StM3A1x04NVvoOH+jC39B71WzyPQREyCNUQKBgFfa\nAU7u/O6Wx61vqr4jPLpzrYH9e+A0KJiybRV2lX+1AdQVx6g0JWYoSdr2OQumomEd\nREi4EtOMenvP5FkSP5PZgAA/EpFmilIXZ+oN2y8awC9AajIOc3n8B/M4ksmf9XI4\niB3eg2tQEG635f7hnILtZtznVEx+PN62O0XuYdqhAoGAeGxjEeGHfbv2MdZEwfYh\njVQkH5pb3ha87yEkVmxm2jSpe2Abs8GCLstkwVLHbWlgyrWay9LLcDwf85fPPewy\nPNEqukNpfkNnO5+5zcx/UJmYPL64XsPROmDeIbFP1WRKeQLHq/WNEO6K/uijpoe6\nvQ43ec/TL/N3ycB/Z6L4iV0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "presto-vision-api@presto-vision-api.iam.gserviceaccount.com",
+  "client_id": "103742367074456529704",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/presto-vision-api%40presto-vision-api.iam.gserviceaccount.com"
+}

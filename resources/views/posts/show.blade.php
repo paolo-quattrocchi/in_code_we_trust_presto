@@ -6,25 +6,16 @@
         <p class="card-text">{{$post->price}} €</p>
         <img src="{{Storage::url($post->image)}}" class="card-img-top" alt="{{$post->title}}">
         <p class="card-text">{{$post->description}}</p>
-        <p class="card-text">{{$post->created_at}}</p>                        
-        <p class="card-text">{{$post->category->name}}</p> 
+        <p class="card-text">{{ __('ui.Data') }}: {{$post->created_at}}</p>                        
+        <p class="card-text">{{ __('ui.Categoria') }}: {{$post->category->name}}</p> 
+        <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p>
+
         <div class="slider">
-
-
-         @foreach ($post->images as $image)
-     
-            <div><img src="{{Storage::url($image->file)}}"></div>
-{{--                 <div class="col-md-8">
-                  {{$image->id}} <br>
-                  {{$image->file}} <br>
-                  {{Storage::url($image->file)}} <br>
-   
-                </div> --}}
-            
-        
-         @endforeach
-
-        </div>                       
+          @foreach ($post->images as $image)
+          <div><img src="{{$image->getUrl(450, 300)}}"></div>
+          @endforeach
+        </div>      
+                         
       </div>
     </div>
   </div>

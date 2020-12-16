@@ -11,11 +11,13 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "google/cloud-vision": "^1.2",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/scout": "^8.5",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.1",
+        "spatie/image": "^1.10",
         "teamtnt/laravel-scout-tntsearch-driver": "^11.1"
     },
     "require-dev": {

@@ -13,14 +13,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{route('posts.index')}}">Vedi gli annunci</a>
+          <a class="nav-link text-white" href="{{route('posts.index')}}">{{ __('ui.Annunci') }}</a>
         </li>
         {{-- <li class="nav-item">
           <a class="nav-link text-white" href="{{route('posts.create')}}">Pubblica annuncio</a>
         </li> --}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorie
+            {{ __('ui.Categorie') }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             @foreach ($categories as $category)
@@ -33,41 +33,34 @@
         </li>
       </ul>
       <form action="{{route('search')}}" method="GET">
-        <input type="text" name="q" placeholder="Cerca" class="search-bar">
-        <button class="btn bg-btn  ml-3 rounded-pill text-white" type="submit">Cerca</button>
+        <input type="text" name="q" placeholder="{{ __('ui.Cerca') }}" class="search-bar">
+        <button class="btn bg-btn  ml-3 rounded-pill text-white" type="submit">{{ __('ui.Cerca') }}</button>
       </form>
       <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
+
+
         @guest
         @if (Route::has('login'))
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+          <a class="nav-link text-white" href="{{ route('login') }}">{{ __('ui.Accedi') }}</a>
         </li>
         @endif
         
         @if (Route::has('register'))
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+          <a class="nav-link text-white" href="{{ route('register') }}">{{ __('ui.Registrati') }}</a>
         </li>
         @endif
         @else
         @if (Auth::user()->is_revisor)
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('revisors.index') }}">Area revisore
+          <a class="nav-link" href="{{ route('revisors.index') }}">{{ __('ui.Revisore') }}
           <span class="badge badge-pill badge-warning">{{\App\Models\Post::ToBeRevisionedCount()}}</span>
           </a>
         </li>
             
         @endif
-        <li class="nav-item">
-          @include('layouts._locale', ['lang' => 'it', 'nation' => 'it'])
-        </li>
-        <li class="nav-item">
-          @include('layouts._locale', ['lang' => 'en', 'nation' => 'gb'])
-        </li>
-        <li class="nav-item">
-          @include('layouts._locale', ['lang' => 'ro', 'nation' => 'ro'])
-        </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }}
@@ -77,7 +70,7 @@
             <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
+            {{ __('ui.Logout') }}
           </a>
           
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -85,10 +78,32 @@
           </form>
         </div>
       </li>
+
+      {{-- Bandierine dropdown --}}
+      <li class="nav-item dropdown">
+        <a id="lang" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <i class="fas fa-globe-americas"></i>
+        </a>
+        
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lang">
+          <a class="dropdown-item">
+            @include('layouts.locale', ['lang' => 'it', 'nation' => 'it'])
+          </a>
+          <a class="dropdown-item">
+            @include('layouts.locale', ['lang' => 'en', 'nation' => 'gb'])
+          </a>
+          <a class="dropdown-item">
+            @include('layouts.locale', ['lang' => 'ro', 'nation' => 'ro'])
+          </a>
+
+      </div>
+    </li>
       
       @endguest
-      <a href="{{route('posts.create')}}" class="btn bg-btn  ml-3 rounded-pill text-white">Inserisci annuncio</a>
+      <a href="{{route('posts.create')}}" class="btn bg-btn  ml-3 rounded-pill text-white">{{ __('ui.Inserisci') }}</a>
+
     </ul>
+      
   </div>
 </div>
 </nav>

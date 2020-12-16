@@ -20,6 +20,8 @@ $(function() {
             
             addRemoveLinks: true,
 
+            maxFiles:5,
+
 
             init:function(){
                 

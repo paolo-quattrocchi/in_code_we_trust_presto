@@ -13756,7 +13756,8 @@ a.text-dark:focus {
 }
 
 .masthead {
-  height: 100vh;
+  position: relative;
+  height: 80vh;
   min-height: 500px;
   background-image: url(/images/header.jpg?4bec0d0ac68af3949409359c4251d06b);
   background-size: cover;
@@ -13764,11 +13765,15 @@ a.text-dark:focus {
   background-repeat: no-repeat;
 }
 
+.masthead h1 {
+  color: var(--second-color);
+}
+
 .overlay {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .search-bar {
@@ -13790,5 +13795,22 @@ a.text-dark:focus {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card,
+.card .card-body {
+  border-radius: 14px;
+}
+
+.card .card-img {
+  height: 220px;
+  overflow: hidden;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.card img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 

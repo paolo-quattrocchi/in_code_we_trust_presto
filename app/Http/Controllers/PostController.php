@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEcommercePost;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostImage;
 use App\Models\User;
-use Facade\FlareClient\Stacktrace\File;
+use App\Models\Category;
+use App\Jobs\ResizeImage;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearchImage;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreEcommercePost;
+
 
 class PostController extends Controller
 {
@@ -91,12 +94,25 @@ class PostController extends Controller
             $fileName = basename($image);
             $newFileName = "public/posts/{$user->posts->last()->id}/{$fileName}";
             Storage::move($image, $newFileName);
-            $i->file = $fileName;
+            dispatch(new ResizeImage(
+                $newFileName, 
+                450,
+                300
+            ));
+            
+            
+            $i->file = $newFileName;
             $i->post_id = $user->posts->last()->id;
             $i->save();
+            dispatch(new GoogleVisionSafeSearchImage($i->id));
+            dispatch(new GoogleVisionLabelImage($i->id));
         }
         
-        //File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+          
+                  
+ 
+        
+        File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
         
         /* $user = Auth::user();
         Post::create([
@@ -122,6 +138,14 @@ class PostController extends Controller
     public function uploadImage(Request $request){
         $uniqueSecret = $request->input('uniqueSecret');
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        dispatch(new ResizeImage(
+            $fileName, 
+            120,
+            120
+        ));
+
+
+
         session()->push("images.{$uniqueSecret}", $fileName);
         return response()->json(
             [
@@ -148,7 +172,7 @@ class PostController extends Controller
         foreach ($images as $image){
             $data[] = [
                 'id' => $image,
-                'src' => Storage::url($image)
+                'src' => PostImage::getUrlByFilePath($image, 120, 120)
             ];
         }
         return response()->json($data);
@@ -162,7 +186,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        
         return view('posts.show', compact('post'));
+
     }
 
     /**
