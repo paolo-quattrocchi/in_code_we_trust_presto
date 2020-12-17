@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4">
-                <img class="img-fluid d-block mx-auto mt-3" src="https://picsum.photos/200/200" alt="">
+                <img class="img-fluid d-block mx-auto mt-3 rounded-circle" src="https://picsum.photos/200/200" alt="">
             </div>
             <div class="col-12 col-md-8">
                 <p class="text-second font-weight-bold h5 mt-3">{{Auth::user()->name}}</p>
@@ -41,7 +41,7 @@
     <div class="container my-5 py-5">
         <div class="row">
             <div class="col-8 pb-5">
-                <p class="text-second font-weight-bold h5">Ultimi annunci</p>
+                <p class="text-second font-weight-bold h3">Ultimi annunci</p>
             </div>
             
         </div>
@@ -88,8 +88,14 @@
         </div>
     </div>
     
+    <hr>
     
-    
+    <div class="container">
+        <div class="row">
+            <p class="text-second font-weight-bold h3">Annunci da revisionare ({{\App\Models\Post::ToBeRevisionedCount()}})</p>
+        </div>
+    </div>
+
     @if ($post)
     <div class="container">
         <div class="row justify-content-center my-5">
@@ -135,30 +141,47 @@
         
         
         
-        <div class="row">
+        <div class="row pt-4">
             @foreach ($post->images as $image)
             <div class="col-md-4 my-3">
                 <div><img class="img-fluid" src="{{$image->getUrl(450, 300)}}"></div>
                 
             </div>
             
-            <div class="col-md-8">
-                Adult: {{$image->adult}} <br>
-                Spoof: {{$image->spoof}} <br>
-                Medical: {{$image->medical}} <br>
-                Violence: {{$image->violence}} <br>
-                Racy: {{$image->racy}} <br>
+            <div class="col-md-8 pt-3 mb-5">
+                <small>Adult</small>
+                <div class="progress" style="height: 2px">                   
+                    <div class="progress-bar" role="progressbar" style="width: {{$image->adult}}%;"></div>                  
+                </div>
+                <small>Spoof</small>
+                <div class="progress" style="height: 2px">                   
+                    <div class="progress-bar" role="progressbar" style="width: {{$image->spoof}}%;"></div>                  
+                </div>
+                <small>Medical</small>
+                <div class="progress" style="height: 2px">                   
+                    <div class="progress-bar" role="progressbar" style="width: {{$image->medical}}%;"></div>                  
+                </div>
+                <small>Violence</small>
+                <div class="progress" style="height: 2px">                   
+                    <div class="progress-bar" role="progressbar" style="width: {{$image->violence}}%;"></div>                  
+                </div>
+                <small>Racy</small>
+                <div class="progress" style="height: 2px">                   
+                    <div class="progress-bar" role="progressbar" style="width: {{$image->racy}}%;"></div>                  
+                </div>
+
+                
                 {{-- {{$image->id}} <br>
                 {{$image->file}} <br>
                 {{Storage::url($image->file)}} <br> --}}
                 
                 
                 
-                <b>Labels</b><br>
+                <h3 class="mt-3">Labels</h3>
                 
                 @if ($image->labels)
                 @foreach ($image->labels as $label)
-                <span class="badge badge-pill p-2 text-dark btn btn-outline-primary">{{$label}}</span>
+                <span class="badge badge-pill p-2 text-dark m-1 badge-label">{{$label}}</span>
                 @endforeach
                 @endif
                 
@@ -168,27 +191,20 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
+    
         
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
                 <form action="{{route('revisors.reject' , $post->id)}}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-danger rounded-pill text-white">Rifiuta</button>
+                    <button type="submit" class="btn btn-danger rounded-pill text-white d-block mx-auto w-75 py-2 mb-2">Rifiuta</button>
                 </form>
             </div>
             
             <div class="col-md-6">
                 <form action="{{route('revisors.accept' , $post->id)}}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-success rounded-pill text-white">Accetta</button>
+                    <button type="submit" class="btn btn-success rounded-pill text-white d-block mx-auto w-75 py-2">Accetta</button>
                 </form>
             </div>
             

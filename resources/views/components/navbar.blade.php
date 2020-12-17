@@ -32,7 +32,7 @@
           </div>
         </li>
       </ul>
-      <form action="{{route('search')}}" method="GET">
+      <form action="{{route('search')}}" method="GET" class="d-none d-sm-block">
         <input type="text" name="q" placeholder="{{ __('ui.Cerca') }}" class="search-bar">
         <button class="btn bg-btn  ml-3 rounded-pill text-white" type="submit">{{ __('ui.Cerca') }}</button>
       </form>
@@ -56,7 +56,7 @@
         @if (Auth::user()->is_revisor)
         <li class="nav-item">
           <a class="nav-link" href="{{ route('revisors.index') }}">{{ __('ui.Revisore') }}
-          <span class="badge badge-pill badge-warning">{{\App\Models\Post::ToBeRevisionedCount()}}</span>
+          <span class="badge badge-pill badge-danger">{{\App\Models\Post::ToBeRevisionedCount()}}</span>
           </a>
         </li>
             

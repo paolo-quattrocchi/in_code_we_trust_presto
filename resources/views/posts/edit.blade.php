@@ -1,14 +1,17 @@
 <x-layout>
-    <div class="container my-5 vh-100">
-        <div class="row">
-            <div class="col-12">
-                @if (session('message'))
-                    <div class="alert alert-success text-center">
-                        {{session('message')}}
-                    </div>
-                @endif
-            </div>
+    @if (session('message'))
+    <div class="toast" data-autohide="false">
+        <div class="toast-body d-flex align-items-center">
+            <i class="far fa-check-circle"></i> &nbsp; {{ session('message') }}
         </div>
+    </div>   
+    @endif
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12"><h1 class="text-center mt-4">Modifica il tuo annuncio</h1></div>
+            
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <form action="{{route('posts.update', compact('post'))}}" method="POST" enctype="multipart/form-data">
@@ -37,7 +40,8 @@
                     </div>
                     <div class="form-group">
                         <label for="image">{{ __('ui.Immagine') }}</label>
-                        <input type="file" class="form-control" id="image" aria-describedby="image" name="image">
+                        <input type="file" class="form-control" id="image" aria-describedby="image" name="image" value="{{Storage::url($post->image)}}">
+                       <p> L'immagine di questo post:<br> <img src="{{Storage::url($post->image)}}" class="rounded-circle" width="80"></p> 
                     </div>
                     
                       <button type="submit" class="btn bg-btn rounded-pill text-white">{{ __('ui.Modifica') }}</button>

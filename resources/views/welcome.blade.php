@@ -33,31 +33,43 @@
     </div>
     <div class="row">
       @foreach ($posts as $post)
-      <div class="col-12 col-md-4">
+      <div class="col-md-6 col-lg-4">
         <div class="card my-5 shadow">
           <div class="card-img">
+            <div class="card-price">{{$post->price}} €</div>
             <img src="{{Storage::url($post->image)}}" class="card-img-top" alt="{{$post->title}}">
           </div>
           <div class="card-body">
-            <h4 class="card-title">{{$post->title}}</h4>
-            <p class="card-text">{{$post->price}} €</p>
-            <p class="card-text trunc">{{$post->description}}</p>
-            <p class="card-text">{{ __('ui.Data') }}: {{$post->created_at->format('d-m-Y')}}</p>                        
-            <p class="card-text">{{ __('ui.Categoria') }}: {{$post->category->name}}</p> 
-            <p>{{ __('ui.Autore') }}: {{$post->user->name}}</p> 
-            <a href="{{route('posts.show', compact('post'))}}" class="btn bg-btn rounded-pill text-white">{{ __('ui.Visualizza') }}</a>
+            <small> {{$post->category->name}}</small> 
+            <h3 class="card-title">{{$post->title}}</h3>          
+            <p class="card-desc">{{substr($post->description, 0, 100)}} ...</p>
             
+            <a href="{{route('posts.show', compact('post'))}}" class="btn bg-btn rounded-pill text-white w-75 d-block mx-auto">{{ __('ui.Visualizza') }}</a>
             
-            
-            
-            
-            
+          </div>
+          <div class="card-footer bg-white">
+            <div class="row no-gutters">
+              <div class="col-6 text-center"> <p><i class="far fa-clock"></i> {{$post->created_at->format('d M Y')}}</p> </div>
+              <div class="col-6 text-center"><p><i class="far fa-user"></i> {{$post->user->name}}</p> </div>
+            </div>
           </div>
         </div>
       </div>
       @endforeach
     </div> 
   </div>
-</div>
+
+  <div class="container">
+    <div class="row be-revisor m-2">
+      <div class="col-md-6 order-2 order-md-1"><img src="/images/revisor.svg" class="img-fluid"></div>
+      <div class="col-md-6 order-1 order-md-2 text-center">
+        <div class="h1">Diventa revisore</div>
+        <p class="lead">Collabora con noi</p>
+        <a href="{{route('revisors.request')}}" class="btn bg-btn  ml-3 rounded-pill text-white">Inizia subito</a>
+
+      </div>
+    </div>
+  </div>
+
 
 </x-layout>
